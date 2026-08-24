@@ -1,0 +1,61 @@
+models:
+  - name: stg_portfolio
+    description: Portfolio tracking records.
+    config:
+      contract:
+        enforced: true
+    columns:
+      - name: account_id
+        description: The account associated to the portfolio.
+        data_type: varchar
+        data_tests:
+          - not_null
+      - name: symbol
+        description: The unique identifier for each stock symbol.
+        data_type: varchar
+        data_tests:
+          - not_null
+          - unique
+      - name: description
+        description: A brief description of the stock symbol.
+        data_type: varchar
+      - name: exchange
+        description: The exchange where the stock is listed.
+        data_type: varchar
+        data_tests:
+          - not_null
+      - name: report_date
+        description: The date for which the portfolio report is generated.
+        data_type: date
+        data_tests:
+          - not_null
+      - name: quantity
+        description: The number of shares held for the stock symbol.
+        data_type: integer
+        data_tests:
+          - not_null
+      - name: cost_base
+        description: The cost basis for the stock symbol.
+        data_type: numeric(12, 2)
+        data_tests:
+          - not_null
+      - name: position_value
+        description: The total value of the position.
+        data_type: numeric(12, 2)
+        data_tests:
+          - not_null
+      - name: currency
+        description: The currency in which the position value is denominated.
+        data_type: varchar
+        data_tests:
+          - not_null
+      - name: unrealized_profit
+        description: The unrealized profit or loss for the position.
+        data_type: numeric(12, 2)
+        data_tests:
+          - not_null
+      - name: unrealized_profit_pct
+        description: The percentage change in the unrealized profit or loss for the position.
+        data_type: numeric(12, 2)
+        data_tests:
+          - not_null
