@@ -5,21 +5,32 @@ models:
       contract:
         enforced: true
     columns:
-      - name: account_id
+      - name: position_hkey
+        description: The unique identifier for each position in the portfolio.
+        data_type: varchar
+        data_tests:
+          - not_null
+          - unique
+      - name: position_hdiff
+        description: The difference in positions.
+        data_type: varchar
+        data_tests:
+          - not_null
+      - name: account_code
         description: The account associated to the portfolio.
         data_type: varchar
         data_tests:
           - not_null
-      - name: symbol
+      - name: security_code
         description: The unique identifier for each stock symbol.
         data_type: varchar
         data_tests:
           - not_null
           - unique
-      - name: description
+      - name: security_name
         description: A brief description of the stock symbol.
         data_type: varchar
-      - name: exchange
+      - name: exchange_code
         description: The exchange where the stock is listed.
         data_type: varchar
         data_tests:
@@ -44,18 +55,18 @@ models:
         data_type: numeric(12, 2)
         data_tests:
           - not_null
-      - name: currency
+      - name: currency_code
         description: The currency in which the position value is denominated.
         data_type: varchar
         data_tests:
           - not_null
-      - name: unrealized_profit
-        description: The unrealized profit or loss for the position.
-        data_type: numeric(12, 2)
+      - name: record_source
+        description: The source from which the portfolio record was obtained.
+        data_type: varchar
         data_tests:
           - not_null
-      - name: unrealized_profit_pct
-        description: The percentage change in the unrealized profit or loss for the position.
-        data_type: numeric(12, 2)
+      - name: load_ts_utc
+        description: The timestamp when the record was loaded into the system (in UTC).
+        data_type: timestamp
         data_tests:
           - not_null
