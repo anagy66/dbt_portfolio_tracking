@@ -22,3 +22,6 @@ models:
     staging:
       +schema: stg
       +materialized: view
+    refined:
+      +schema: ref
+      +materialized: table
