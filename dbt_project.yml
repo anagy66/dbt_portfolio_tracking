@@ -25,3 +25,6 @@ models:
     refined:
       +schema: ref
       +materialized: table
+    marts:
+      +schema: mrt
+      +materialized: table
