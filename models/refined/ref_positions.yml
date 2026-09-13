@@ -1,6 +1,6 @@
 models:
-  - name: ref_portfolio
-    description: Refined portfolio tracking records.
+  - name: ref_positions
+    description: Refined position tracking records.
     config:
       contract:
         enforced: true
