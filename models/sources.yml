@@ -1,0 +1,9 @@
+version: 2
+
+sources:
+  - name: seeds
+    description: "Raw data from the seeds"
+    schema: "{{ target.schema }}_raw"
+    tables:
+      - name: raw_security_info
+        description: "Raw security information"

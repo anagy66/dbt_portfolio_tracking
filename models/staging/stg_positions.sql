@@ -19,7 +19,7 @@ renamed as (
         position_value::numeric(12, 2) as position_value,
         currency::varchar as currency_code,
 
-        'raw.dbt_portfolio_tracking'::varchar as record_source,
+        'raw.positions'::varchar as record_source,
 
     from source
 

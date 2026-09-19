@@ -15,6 +15,11 @@ seeds:
   # Builds seeds into 'raw'
   dbt_portfolio_tracking:
     +schema: raw
+    raw_security_info:
+      +post_hook: 
+        - "update {{ this }} set load_ts = '{{ run_started_at }}' where load_ts is null"
+      +column_types:
+        load_ts: timestamp
 
 snapshots:
   dbt_portfolio_tracking:

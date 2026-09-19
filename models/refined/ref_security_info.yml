@@ -1,0 +1,47 @@
+models:
+  - name: ref_security_info
+    description: Security information records.
+    config:
+      contract:
+        enforced: true
+    columns:
+      - name: security_hkey
+        description: The unique identifier for each security in the portfolio.
+        data_type: varchar
+        data_tests:
+          - not_null
+          - unique
+      - name: security_hdiff
+        description: The difference in security holdings.
+        data_type: varchar
+        data_tests:
+          - not_null
+      - name: security_code
+        description: The unique identifier for each stock symbol.
+        data_type: varchar
+        data_tests:
+          - not_null
+          - unique
+      - name: security_name
+        description: A brief description of the stock symbol.
+        data_type: varchar
+      - name: sector_name
+        description: The sector to which the stock belongs.
+        data_type: varchar
+      - name: industry_name
+        description: The industry to which the stock belongs.
+        data_type: varchar
+      - name: country_code
+        description: The country where the company is based.
+        data_type: varchar
+      - name: exchange_code
+        description: The exchange where the stock is listed.
+        data_type: varchar
+      - name: load_ts_utc
+        description: The timestamp when the record was loaded into the system.
+        data_type: timestamp
+      - name: record_source
+        description: The source from which the portfolio record was obtained.
+        data_type: varchar
+        data_tests:
+          - not_null
