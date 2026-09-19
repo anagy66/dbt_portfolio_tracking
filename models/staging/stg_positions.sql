@@ -2,7 +2,7 @@ with
 
 source as (
 
-    select * from {{ ref('raw_positions') }}
+    select * from {{ source('seeds', 'raw_positions') }}
 
 ),
 

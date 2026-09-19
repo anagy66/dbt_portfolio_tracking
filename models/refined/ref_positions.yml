@@ -60,16 +60,6 @@ models:
         data_type: varchar
         data_tests:
           - not_null
-      - name: record_source
-        description: The source from which the portfolio record was obtained.
-        data_type: varchar
-        data_tests:
-          - not_null
-      - name: load_ts_utc
-        description: The timestamp when the record was loaded into the system (in UTC).
-        data_type: timestamp
-        data_tests:
-          - not_null
       - name: unrealized_profit
         description: The unrealized profit for the position.
         data_type: numeric(12, 5)
@@ -78,5 +68,15 @@ models:
       - name: unrealized_profit_pct
         description: The unrealized profit percentage for the position.
         data_type: numeric(12, 5)
+        data_tests:
+          - not_null
+      - name: load_ts_utc
+        description: The timestamp when the record was loaded into the system (in UTC).
+        data_type: timestamp
+        data_tests:
+          - not_null
+      - name: record_source
+        description: The source from which the portfolio record was obtained.
+        data_type: varchar
         data_tests:
           - not_null

@@ -7,3 +7,5 @@ sources:
     tables:
       - name: raw_security_info
         description: "Raw security information"
+      - name: raw_positions
+        description: "Raw position information"
