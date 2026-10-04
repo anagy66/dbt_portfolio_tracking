@@ -1,0 +1,62 @@
+models:
+  - name: dim_exchange
+    description: Dimensional table for exchange data.
+    config:
+      contract:
+        enforced: true
+    columns:
+      - name: exchange_hkey
+        description: The unique identifier for each exchange.
+        data_type: varchar
+        data_tests:
+          - not_null
+          - unique
+      - name: exchange_hdiff
+        description: The difference in exchange data.
+        data_type: varchar
+        data_tests:
+          - not_null
+      - name: exchange_code
+        description: The identifier for each exchange.
+        data_type: varchar
+        data_tests:
+          - not_null
+      - name: exchange_name
+        description: The name of the exchange.
+        data_type: varchar
+        data_tests:
+          - not_null
+      - name: country
+        description: The country where the exchange is located.
+        data_type: varchar
+      - name: city
+        description: The city where the exchange is located.
+        data_type: varchar
+      - name: zone
+        description: The zone where the exchange is located.
+        data_type: varchar
+      - name: delta
+        description: The delta of the exchange rate.
+        data_type: float
+      - name: dst_period
+        description: The period for which the exchange rate is applicable.
+        data_type: varchar
+      - name: open_utc
+        description: The opening time of the exchange in UTC.
+        data_type: varchar
+      - name: close_utc
+        description: The closing time of the exchange in UTC.
+        data_type: varchar
+      - name: lunch_utc
+        description: Flag indicating whether the exchange is open for lunch.
+        data_type: bool
+      - name: load_ts_utc
+        description: The timestamp when the record was loaded into the system (in UTC).
+        data_type: timestamp
+        data_tests:
+          - not_null
+      - name: record_source
+        description: The source from which the exchange record was obtained.
+        data_type: varchar
+        data_tests:
+          - not_null

@@ -1,0 +1,48 @@
+models:
+  - name: dim_currency
+    description: Dimensional table for currency data.
+    config:
+      contract:
+        enforced: true
+    columns:
+      - name: currency_hkey
+        description: The unique identifier for each currency.
+        data_type: varchar
+        data_tests:
+          - not_null
+          - unique
+      - name: currency_hdiff
+        description: The difference in currency data.
+        data_type: varchar
+        data_tests:
+          - not_null
+      - name: currency_code
+        description: The identifier for each currency.
+        data_type: varchar
+        data_tests:
+          - not_null
+      - name: currency_name
+        description: The name of the currency.
+        data_type: varchar
+        data_tests:
+          - not_null
+      - name: decimal_digits
+        description: The number of digits required for the currency representation.
+        data_type: int
+        data_tests:
+          - not_null
+      - name: locations
+        description: The list of locations the currency is in use.
+        data_type: varchar
+        data_tests:
+          - not_null
+      - name: load_ts_utc
+        description: The timestamp when the record was loaded into the system (in UTC).
+        data_type: timestamp
+        data_tests:
+          - not_null
+      - name: record_source
+        description: The source from which the currency record was obtained.
+        data_type: varchar
+        data_tests:
+          - not_null

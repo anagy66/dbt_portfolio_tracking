@@ -9,3 +9,9 @@ sources:
         description: "Raw security information"
       - name: raw_positions
         description: "Raw position information"
+      - name: raw_countries
+        description: "Raw country information"
+      - name: raw_currency
+        description: "Raw currency information"
+      - name: raw_exchange
+        description: "Raw exchange information"

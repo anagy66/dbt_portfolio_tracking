@@ -1,0 +1,50 @@
+models:
+  - name: ref_countries
+    description: Refined table for country data.
+    config:
+      contract:
+        enforced: true
+    columns:
+      - name: country_hkey
+        description: The unique identifier for each country.
+        data_type: varchar
+        data_tests:
+          - not_null
+          - unique
+      - name: country_hdiff
+        description: The difference in country data.
+        data_type: varchar
+        data_tests:
+          - not_null
+      - name: country_code
+        description: The identifier for each country.
+        data_type: varchar
+        data_tests:
+          - not_null
+      - name: country_name
+        description: The name of the country.
+        data_type: varchar
+        data_tests:
+          - not_null
+      - name: region_code
+        description: The code representing the region.
+        data_type: varchar
+      - name: region
+        description: The region to which the country belongs.
+        data_type: varchar
+      - name: sub_region_code
+        description: The code representing the sub-region.
+        data_type: varchar
+      - name: sub_region
+        description: The sub-region to which the country belongs.
+        data_type: varchar
+      - name: load_ts_utc
+        description: The timestamp when the record was loaded into the system (in UTC).
+        data_type: timestamp
+        data_tests:
+          - not_null
+      - name: record_source
+        description: The source from which the portfolio record was obtained.
+        data_type: varchar
+        data_tests:
+          - not_null
