@@ -2,19 +2,19 @@ with
 
 source as (
 
-    select
-        * exclude(dbt_scd_id, dbt_updated_at, dbt_valid_from, dbt_valid_to)
-        
-    from {{ ref('snsh_positions') }}
-
-    where dbt_valid_to is null
+    {{ current_from_snapshot(
+        snsh_ref = ref('snsh_positions'),
+        output_load_ts = false
+    ) }}
 
 ),
 
 refined as (
 
     select
-        *,
+        * exclude(report_date),
+
+        {{ to_21st_century_date('report_date') }} as report_date,
 
         (position_value - cost_base)::numeric(12, 5) as unrealized_profit,
 

@@ -2,14 +2,10 @@ with
 
 source as (
 
-    select
-        * exclude(lunch_utc, dbt_scd_id, dbt_updated_at, dbt_valid_from, dbt_valid_to),
-
-        lower(trim(lunch_utc)) as lunch_utc
-        
-    from {{ ref('snsh_exchange') }}
-
-    where dbt_valid_to is null
+    {{ current_from_snapshot(
+        snsh_ref = ref('snsh_exchange'),
+        output_load_ts = false
+    ) }}
 
 ),
 
