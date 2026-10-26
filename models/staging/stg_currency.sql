@@ -24,8 +24,8 @@ renamed as (
 hashed as (
 
     select
-        concat_ws('|', currency_code, currency_numeric_code::varchar) as currency_hkey,
-        concat_ws('|', currency_code, currency_numeric_code::varchar, currency_name, decimal_digits::varchar, locations) as currency_hdiff,
+        {{ dbt_utils.generate_surrogate_key(['currency_code', 'currency_numeric_code::varchar']) }} as currency_hkey,
+        {{ dbt_utils.generate_surrogate_key(['currency_code', 'currency_numeric_code::varchar', 'currency_name', 'decimal_digits::varchar', 'locations']) }} as currency_hdiff,
         * exclude(currency_numeric_code, decimal_digits, locations),
 
         ifnull(decimal_digits, 0)::int as decimal_digits,

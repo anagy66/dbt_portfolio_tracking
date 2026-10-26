@@ -49,8 +49,8 @@ combined as (
 hashed as (
 
     select
-        concat_ws('|', security_code) as security_hkey,
-        concat_ws('|', security_code, security_name, sector_name, industry_name, country_code, exchange_code) as security_hdiff,
+        {{ dbt_utils.generate_surrogate_key(['security_code']) }} as security_hkey,
+        {{ dbt_utils.generate_surrogate_key(['security_code', 'security_name', 'sector_name', 'industry_name', 'country_code', 'exchange_code']) }} as security_hdiff,
         *
 
     from combined

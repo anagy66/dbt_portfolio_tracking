@@ -29,8 +29,8 @@ renamed as (
 hashed as (
 
     select
-        concat_ws('|', exchange_code) as exchange_hkey,
-        concat_ws('|', exchange_code, exchange_name, country, city, zone, delta, dst_period, open_utc, close_utc, lunch_utc) as exchange_hdiff,
+        {{ dbt_utils.generate_surrogate_key(['exchange_code']) }} as exchange_hkey,
+        {{ dbt_utils.generate_surrogate_key(['exchange_code', 'exchange_name', 'country', 'city', 'zone', 'delta', 'dst_period', 'open_utc', 'close_utc', 'lunch_utc']) }} as exchange_hdiff,
         *,
 
         '{{ run_started_at }}'::timestamp as load_ts_utc

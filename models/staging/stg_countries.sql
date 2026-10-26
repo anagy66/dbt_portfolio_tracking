@@ -25,8 +25,8 @@ renamed as (
 hashed as (
 
     select
-        concat_ws('|', country_code) as country_hkey,
-        concat_ws('|', country_code, country_name, region_code, region, sub_region_code, sub_region) as country_hdiff,
+        {{ dbt_utils.generate_surrogate_key(['country_code']) }} as country_hkey,
+        {{ dbt_utils.generate_surrogate_key(['country_code', 'country_name', 'region_code', 'region', 'sub_region_code', 'sub_region']) }} as country_hdiff,
         *,
         '{{ run_started_at }}'::timestamp as load_ts_utc
 
