@@ -1,0 +1,11 @@
+snapshots:
+  - name: snsh_exchange
+    description: Snapshot of exchange data for SNSh
+    columns:
+      - name: exchange_hkey
+        data_tests:
+          - no_hash_collisions:
+              arguments:
+                hashed_fields:
+                  - exchange_code
+                  

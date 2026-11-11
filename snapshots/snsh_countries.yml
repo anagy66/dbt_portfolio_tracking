@@ -1,0 +1,11 @@
+snapshots:
+  - name: snsh_countries
+    description: Snapshot of the positions table
+    columns:
+      - name: country_hkey
+        data_tests:
+          - no_hash_collisions:
+              arguments:
+                hashed_fields:
+                  - country_code
+

@@ -1,0 +1,11 @@
+snapshots:
+  - name: snsh_positions
+    description: Snapshot of positions for SNSh
+    columns:
+      - name: position_hkey
+        data_tests:
+          - no_hash_collisions:
+              arguments:
+                hashed_fields:
+                  - account_code
+                  - security_code

@@ -1,0 +1,10 @@
+snapshots:
+  - name: snsh_currency
+    description: Snapshot of currency for SNSh
+    columns:
+      - name: currency_hkey
+        data_tests:
+          - no_hash_collisions:
+              arguments:
+                hashed_fields:
+                  - currency_code
